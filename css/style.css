@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: "Karla", sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.image {
+  height: 500px;
+  width: 60%;
+  margin: 0 20px;
+  border-radius: 5px;
+  border: 5px solid white;
+
+  position: relative;
+  z-index: 50;
+}
+
+input {
+  transform: scale(1.2);
+}
+
+span {
+  font-size: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  z-index: 50;
+}
+
+span:hover {
+  transform: scale(1.2);
+}
+
+.active {
+  display: block;
+}
+
+.glowing {
+  position: relative;
+  min-width: 750px;
+  height: 750px;
+  margin: -150px;
+  transform-origin: right;
+  animation: colorChange 5s linear infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.glowing:nth-child(even) {
+  transform-origin: left;
+}
+
+.glowing span {
+  position: absolute;
+  top: calc(80px * var(--i));
+  left: calc(80px * var(--i));
+  bottom: calc(80px * var(--i));
+  right: calc(80px * var(--i));
+}
+
+.glowing span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left:  - 8px;
+  width: 15px;
+  height: 15px;
+  background: #f00;
+  border-radius: 50%;
+}
+
+.glowing span:nth-child(3n + 1):before {
+  background: rgba(134,255,0,1);
+  box-shadow: 0 0 20px rgba(134,255,0,1),
+  0 0 40px rgba(134,255,0,1),
+  0 0 60px rgba(134,255,0,1),
+  0 0 80px rgba(134,255,0,1),
+  0 0 0 8px rgba(134,255,0,.1);
+}
+
+.glowing span:nth-child(3n + 2):before {
+  background: rgba(255,214,0,1);
+  box-shadow: 0 0 20px rgba(255,214,0,1),
+  0 0 40px rgba(255,214,0,1),
+  0 0 60px rgba(255,214,0,1),
+  0 0 80px rgba(255,214,0,1),
+  0 0 0 8px rgba(255,214,0,.1);
+}
+
+.glowing span:nth-child(3n + 3):before {
+  background: rgba(0,226,255,1);
+  box-shadow: 0 0 20px rgba(0,226,255,1),
+  0 0 40px rgba(0,226,255,1),
+  0 0 60px rgba(0,226,255,1),
+  0 0 80px rgba(0,226,255,1),
+  0 0 0 8px rgba(0,226,255,.1);
+}
+
+.glowing span:nth-child(3n + 1) {
+  animation: animate 10s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 2) {
+  animation: animate-reverse 3s alternate infinite;
+}
+.glowing span:nth-child(3n + 3) {
+  animation: animate 8s alternate infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+i {
+  margin: 0 10px;
+}
+
+i.color {
+  animation: scale 0.5s linear;
+  color: yellow;
+  transition: 1s;
+}
+
+@keyframes scale {
+  0% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
