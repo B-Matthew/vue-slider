@@ -13,17 +13,21 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container vue">
       <div class="row">
         <h1>I Miei Film</h1>
       </div>
-      <div class="row vue">
+      <div class="row ">
         <span @click ="prevClick" id="prev"><i class="fas fa-chevron-circle-left"></i></span>
-        <img class="image" :src="image + imageNum + imageFormat" alt="">
+        <!-- <img class="image" :src="image + imageNum + imageFormat" alt=""> -->
+        <img class="image" :src="images[imageInd]" alt="">
 
         <span @click="nextClick" id="next"><i class="fas fa-chevron-circle-right"></i></span>
       </div>
-      
+
+      <div class="row">
+        <i :class="(ind - 1 == imageInd) ? 'color' : ''"  v-for="ind in images.length" class= "fas fa-circle "></i>
+      </div>
 
       <div class="row">
         <div class="glowing">
@@ -52,4 +56,4 @@
 
   </body>
 
-</html>
+  </html>
